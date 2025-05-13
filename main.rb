@@ -6,4 +6,5 @@ word_storage = SecretWord.new
 word_storage.generate_word
 puts "What is your name, Player?"
 player = Player.new(gets.chomp)
-Game.new(word_storage.word, player)
+game = Game.new(word_storage.word, player, player.name)
+game.play
