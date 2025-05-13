@@ -7,8 +7,11 @@ class Game
 
   def word_generator
     File.open("dictionary/google-10000-english-usa-no-swears.txt") do |word_list|  
-      random_number = rand(0..9881)
-      @word = (word_list.readlines()[random_number]).chomp
+      @word = (word_list.readlines().sample).chomp
+      until (self.word).length >= 5 && (self.word).length <= 12
+        word_list.rewind
+        @word = (word_list.readlines().sample).chomp
+      end
       end
   end
 end
