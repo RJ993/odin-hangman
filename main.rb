@@ -1,4 +1,9 @@
 require_relative 'lib/game-mechanics'
+require_relative 'lib/game-elements/secret_word'
+require_relative 'lib/game-elements/player'
 
-game = Game.new
-game.word_generator
+word_storage = SecretWord.new
+word_storage.generate_word
+puts "What is your name, Player?"
+player = Player.new(gets.chomp)
+Game.new(word_storage.word, player)
