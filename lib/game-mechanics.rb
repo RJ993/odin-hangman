@@ -64,6 +64,7 @@ attr_accessor :hidden_array, :wrong_guesses, :status
     end
     if wrong_guesses == 6
       puts "#{self.player_name} has lost!"
+      puts "The word was #{answer}."
     end
   end
 
