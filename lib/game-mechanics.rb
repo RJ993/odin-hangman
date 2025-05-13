@@ -16,8 +16,13 @@ attr_accessor :hidden_array, :wrong_guesses, :status
     @status = false
   end
 
+  def instruct
+    puts "The main goal is to guess the correct word. Be careful! If the human is fully hanged, you lose!"
+  end
+
   def play
     prepare_hidden_array(self.hidden_array)
+    instruct
     display_image
     until self.wrong_guesses == 6 || self.status == true
       process_guess
