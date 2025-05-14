@@ -1,6 +1,4 @@
-class Image
-  attr_accessor :status
-
+module Image
   def initialize
     
   end

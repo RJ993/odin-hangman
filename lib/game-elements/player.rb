@@ -8,14 +8,16 @@ class Player
   end
 
   def guesses(guess)
-    puts 'What letter do you think is in the word'
+    puts 'What letter do you think is in the word. If you want to save. Type in "save"'
     puts "You have guessed: #{self.guess_history}" if self.guess_history != []
     current_guess = gets.chomp.downcase
-    until current_guess.length == 1
+    until current_guess.length == 1 || current_guess == 'save'
       puts 'Invalid, try again.'
       current_guess = gets.chomp.downcase
     end
-    self.guess_history.push(current_guess)
+    if current_guess != 'save'
+      self.guess_history.push(current_guess)
+    end
     guess.replace(current_guess)
   end
   
