@@ -14,8 +14,10 @@ if option == 'new'
   game.set_up_name
   game.play
 end
-if option == 'load'
+if (option == 'load') && (File.zero?('saved_game/only_save_file.yml') == false)
   game = Game.new
   game.load_game
   game.play
+elsif (option == 'load') && File.zero?('saved_game/only_save_file.yml') == true
+  puts "You haven't played a game yet. Please try opening the game again and play a new game."
 end
