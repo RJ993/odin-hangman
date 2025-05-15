@@ -15,7 +15,6 @@ if option == 'new'
   game.play
 end
 if option == 'load'
-  puts 'Sorry, but save states are a work in progress!!!'
   game = Game.new
   game.load_game
   game.play
