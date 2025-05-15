@@ -5,9 +5,7 @@ require 'yaml'
 
 option = ''
 puts 'Hello, Player, welcome to Hangman!!! Please type "new" for new game or "load" to load a previous save.'
-until option == 'new' || option == 'load'
-  option = gets.chomp.downcase
-end
+option = gets.chomp.downcase until %w[new load].include?(option)
 if option == 'new'
   word_storage = SecretWord.new
   word_storage.generate_word
