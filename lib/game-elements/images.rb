@@ -36,6 +36,7 @@ module Image
     puts '|     O'
     puts '|    /|'
     puts '|'
+    puts ''
   end
 
   def display_four
