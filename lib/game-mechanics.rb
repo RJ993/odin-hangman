@@ -2,19 +2,23 @@ require_relative 'game-elements/secret_word'
 require_relative 'game-elements/player'
 require_relative 'game-elements/images'
 require_relative '../serialize'
+require 'yaml'
 
 class Game
-attr_reader :answer, :player, :player_name, :image
-attr_accessor :hidden_array, :wrong_guesses, :status
+attr_accessor :answer, :player, :hidden_array, :wrong_guesses, :status
 
 include Serialize, Image
 
-  def initialize(word_storage = '', player = '')
+  def initialize(word_storage = '')
     @answer = word_storage
-    @player = player
+    @player = Player.new
     @hidden_array = []
     @wrong_guesses = 0
     @status = false
+  end
+
+  def set_up_name
+    player.name = gets.chomp
   end
 
   def instruct
@@ -32,8 +36,10 @@ include Serialize, Image
   end
 
   def prepare_hidden_array(hidden_array)
-    underscore_counter = (self.answer.length)
-    underscore_counter.times {hidden_array.push('_')} 
+    if hidden_array == []
+      underscore_counter = (self.answer.length)
+      underscore_counter.times {hidden_array.push('_')} 
+    end
   end
 
   def process_guess

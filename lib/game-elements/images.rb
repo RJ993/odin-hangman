@@ -1,8 +1,4 @@
 module Image
-  def initialize
-    
-  end
-
   def display_zero
     puts ""
     puts " |-----|"
@@ -43,6 +39,7 @@ module Image
   end
 
   def display_four
+    puts ""
     puts "|-----|"
     puts "|     |"
     puts '|     O'
@@ -58,9 +55,11 @@ module Image
     puts '|     O'
     puts '|    /|\\'
     puts '|    /'
+    puts ""
   end
 
   def display_six
+    puts ""
     puts "|-----|"
     puts "|     |"
     puts '|     O'

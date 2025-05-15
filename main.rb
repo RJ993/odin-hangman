@@ -12,11 +12,13 @@ if option == 'new'
   word_storage = SecretWord.new
   word_storage.generate_word
   puts "I believe I didn't get your name. What is it?"
-  player = Player.new(gets.chomp)
-  game = Game.new(word_storage.word, player)
+  game = Game.new(word_storage.word)
+  game.set_up_name
   game.play
 end
 if option == 'load'
   puts 'Sorry, but save states are a work in progress!!!'
-  
+  game = Game.new
+  game.load_game
+  game.play
 end

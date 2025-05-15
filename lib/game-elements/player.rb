@@ -1,10 +1,13 @@
 class Player
-  attr_reader :name
-  attr_accessor :guess_history
+attr_accessor :name, :guess_history
 
-  def initialize(name)
+  def initialize(name = 'Major Zero')
     @name = name
     @guess_history = []
+  end
+
+  def change_from_default
+    self.name = gets.chomp
   end
 
   def guesses(guess)
